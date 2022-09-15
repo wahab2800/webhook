@@ -1,0 +1,24 @@
+local webhook = "https://discord.com/api/webhooks/1019159735095799858/xUyREF5UOMAFDhrYf7ulazQwzMeMFNIvnRmTgPcdhhSge5_Xk139yRKYS7GBG_q7pph2"
+
+local data = {
+    ["content"] = "",
+    ["embeds"] = {
+        {
+            ["title"] = "How executed the script",
+            ["description"] = "Has execute: "..game.Players.LocalPlayer.Name.."\n Userid: "..game.Players.LocalPlayer.UserId.."\n Acoount Age: "..game.Players.LocalPlayer.AccountAge.."\n DisplayName: "..game.Players.LocalPlayer.DisplayName,
+        }
+    }
+}
+
+local HS = game:GetService("HttpService"):JSONEncode(data)
+local headers = {
+    ["content-type"] = "application/json"
+}
+
+
+
+request = http_requset or request or HttpPost or syn.request
+local data2 = {
+    Url = webhook, Body = HS, Method = "POST", Headers = headers
+}
+request(data2)
